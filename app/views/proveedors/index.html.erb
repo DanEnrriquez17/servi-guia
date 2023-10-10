@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: proveedors_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Busca un proveedor o un servicio específico"
+        %>
+        <%= submit_tag "Buscar", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="proveedors">
+        <% if @proveedors.any? %>
+          <% @proveedors.each do |proveedor| %>
+            <% if proveedor.avatar.attached? %>
+              <%= cl_image_tag proveedor.avatar.key, class: "proveedor-img"%>
+            <% else %>
+              <%= image_tag "https://res.cloudinary.com/djmnbuel1/image/upload/v1696961779/Servi%20guia/service_jqfxie.png", class:"proveedor-img"%>
+            <% end %>
+            <h4><%= proveedor.nombre %></h4>
+            <p><%= proveedor.calificacion %></p>
+            <p><%= proveedor.tipo_de_servicio %></p>
+            <%= link_to "Ver más", show_path, class: 'btn btn-light' %>
+          <% end %>
+        <% else %>
+          <em>Aún no hay proveedores</em>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

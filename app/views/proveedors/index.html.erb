@@ -24,7 +24,7 @@
             <h4><%= proveedor.nombre %></h4>
             <p><%= proveedor.calificacion %></p>
             <p><%= proveedor.tipo_de_servicio %></p>
-            <%= link_to "Ver más", show_path, class: 'btn btn-light' %>
+            <%= link_to "Ver más", proveedor_path(proveedor), class: 'btn btn-light' %>
           <% end %>
         <% else %>
           <em>Aún no hay proveedores</em>

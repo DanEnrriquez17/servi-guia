@@ -29,7 +29,7 @@ dionisio.avatar.attach(io: dionisio_img, filename: "dionisio.png", content_type:
 puts "Creando la base de datos de reseñas"
 resena1 = dionisio.resenas.create!(
   nombre: "Daniel Enrriquez",
-  reseña: "Muy buen servicio del señor Dionisio, deja el coche muy limpio y hace bien su trabajo",
+  review: "Muy buen servicio del señor Dionisio, deja el coche muy limpio y hace bien su trabajo",
   calificacion: 4.9,
   fecha: Date.today
 )

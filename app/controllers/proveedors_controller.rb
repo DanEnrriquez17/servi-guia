@@ -13,11 +13,12 @@ class ProveedorsController < ApplicationController
 
   def show
     @proveedor = Proveedor.find(params[:id])
+    @resenas = Resenas.find(params[:id])
   end
 
   private
 
   def proveedor_params
-    params.require(:proveedor).permit(:avatar)
+    params.require(:proveedor).permit(:avatar, :resenas)
   end
 end

@@ -1,10 +1,24 @@
 <div>
-  <% if proveedor.avatar.attached? %>
-    <%= cl_image_tag proveedor.avatar.key, class: "proveedor-img"%>
+  <% if @proveedor.avatar.attached? %>
+    <%= cl_image_tag @proveedor.avatar.key, class: "proveedor-img"%>
   <% else %>
     <%= image_tag "https://res.cloudinary.com/djmnbuel1/image/upload/v1696961779/Servi%20guia/service_jqfxie.png", class:"proveedor-img"%>
   <% end %>
-  <h4><%= proveedor.nombre %></h4>
-  <p><%= proveedor.calificacion %></p>
-  <p><%= proveedor.tipo_de_servicio %></p>
+  <h4><%= @proveedor.nombre %></h4>
+  <p><%= @proveedor.calificacion %></p>
+  <p><%= @proveedor.tipo_de_servicio %></p>
+  <%= link_to "Inicio", root_path, class: 'btn btn-light' %>
+</div>
+<div>
+  <p>Reseñas</p>
+  <% if @resenas.any? %>
+    <% @resenas.each do |resena| %>
+      <h4><%= resena.nombre %></h4>
+      <p><%= resena.reseña %></p>
+      <p><%= proveedor.tipo_de_servicio %></p>
+      <%= link_to "Ver más", proveedor_path(proveedor), class: 'btn btn-light' %>
+    <% end %>
+  <% else %>
+    <em>Aún no hay proveedores</em>
+  <% end %>
 </div>
